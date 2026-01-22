@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".PracticalTest02v09MainActivity">
+
+    <TextView
+        android:id="@+id/labelServer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Server Settings"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/portServerEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Server Port (ex: 5000)"
+        android:inputType="number"
+        android:text="5000"
+        app:layout_constraintEnd_toStartOf="@+id/connectButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelServer" />
+
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect Server"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/portServerEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/portServerEditText"/>
+
+    <TextView
+        android:id="@+id/labelClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Client Settings"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/portServerEditText" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address (localhost)"
+        android:text="127.0.0.1"
+        app:layout_constraintTop_toBottomOf="@+id/labelClient" />
+
+    <EditText
+        android:id="@+id/portClientEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Client Port (same as server)"
+        android:inputType="number"
+        android:text="5000"
+        app:layout_constraintTop_toBottomOf="@+id/addressEditText" />
+
+    <TextView
+        android:id="@+id/labelData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Data to Send"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/portClientEditText" />
+
+    <EditText
+        android:id="@+id/edit_text_word"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Word (e.g. listen)"
+        app:layout_constraintEnd_toStartOf="@+id/edit_text_len"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelData"
+        app:layout_constraintHorizontal_weight="2"/>
+
+    <EditText
+        android:id="@+id/edit_text_len"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Min Len"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit_text_word"
+        app:layout_constraintTop_toBottomOf="@+id/labelData"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Anagrams"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_word" />
+
+    <TextView
+        android:id="@+id/labelResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Result:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_send" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/labelResult"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/text_view_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiting for data..."
+            android:textSize="16sp"
+            android:padding="8dp"/>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
